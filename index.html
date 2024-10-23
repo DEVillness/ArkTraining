@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            margin: 10rem;
+            color-scheme: dark;
+        }
+        @media (max-width: 1000px) {
+            body {
+                margin: 2rem;
+            }
+        }
+        select {
+            font-size: 1.5rem;
+            height: 38px;
+        }
+        input {
+            background-color: #000;
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+        button {
+            font-size: 1.5rem;
+        }
+        body > div {
+            max-width: 400px;
+        }
+        body > div > div {
+            display: flex;
+            padding: 0.5rem;
+            border: solid #797979 1px;
+            height: 3.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        body > div > div > label {
+            flex: 1;
+            display: inline-block;
+            max-width: 250px;
+            vertical-align: middle;
+        }
+    </style>
+    <title>TR Calc</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div>
+            <label for="time">훈련시간</label>
+            <select id="time">
+                <option value="28800">8시간</option>
+                <option value="57600">16시간</option>
+                <option value="86400">24시간</option>
+            </select>
+        </div>
+        <div>
+            <label for="acc">훈련속도</label>
+            <select id="acc">
+                <option value="0.60">60%</option>
+                <option value="0.75">75%</option>
+                <option value="0.80">80%</option>
+                <option value="0.95">95%</option>
+            </select>
+        </div>
+        <div>
+            <label for="control">아스카론</label><input type="checkbox" id="control">
+        </div>
+        <div style="font-size: 1rem;">
+            <label for="gs">아이린 + 가드/스나이퍼</label><input type="checkbox" id="gs">
+        </div>
+        <div style="font-size: 1rem;">
+            <label for="cs">로고스 + 캐스터/서포터</label><input type="checkbox" id="cs">
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <button id="button">훈련 시작</button>
+        </div>
+    </div>
+    <div style="margin-top: 2rem;">
+        <a id="result1"></a>
+    </div>
+    <div>
+        <a id="result2"></a>
+    </div>
+    <div style="margin-top: 1rem;">
+        <a id="result3"></a>
+    </div>
+    <script>
+        const button = document.getElementById("button");
+        const result1 = document.getElementById("result1");
+        const result2 = document.getElementById("result2");
+        const result3 = document.getElementById("result3");
+
+        button.addEventListener('click', () => {
+            var now = new Date();
+            var time = parseInt(document.getElementById("time").value);
+            var acc = parseFloat(document.getElementById("acc").value);
+            var control = document.getElementById("control").checked ? 0.05 : 0;
+            var gscs = document.getElementById("gs").checked || document.getElementById("cs").checked ? 1.35 : 1.05;
+
+            var x = parseInt((time - 18000 * gscs) / (1.05 + acc + control));
+            var second = x % 60;
+            x = (x - second) / 60;
+            var minute = x % 60;
+            var hour = (x - minute) / 60;
+
+            var y = parseInt(18000 * gscs / (1.05 + acc + control));
+            var secondY = y % 60;
+            y = (y - secondY) / 60;
+            var minuteY = y % 60;
+            var hourY = (y - minuteY) / 60;
+
+            now.setHours(now.getHours() + hour);
+            now.setMinutes(now.getMinutes() + minute);
+            now.setSeconds(now.getSeconds() + second);
+            result1.textContent = `${hour}시간 ${minute}분 ${second}초 경과`
+            result2.textContent = `${hourY}시간 ${minuteY}분 ${secondY}초 남았을 때`
+            result3.textContent = `${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 투입`;
+        });
+    </script>
+</body>
+</html>
