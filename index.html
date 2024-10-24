@@ -32,6 +32,7 @@
         body > div {
             width: 400px;
             background-color: #000000bf;
+            box-sizing: border-box;
         }
         body > div > div {
             display: flex;
@@ -101,16 +102,16 @@
             <button id="button">훈련 시작</button>
         </div>
     </div>
-    <div style="font-size: 0.75rem; word-break: keep-all; padding: 0.25rem; box-sizing: border-box;">
+    <div style="font-size: 0.75rem; word-break: keep-all; padding: 0.25rem;">
         <span style="color: red; font-weight: bold;">주의!</span> 아이린/로고스를 배치하여 스킬 훈련을 진행하는 도중에 아스카론을 제어센터에 배치하면 훈련시간 단축으로 인해 50% 감소 효과를 받지 못할 수 있습니다.
     </div>
-    <div style="padding-top: 2rem;">
+    <div style="padding: 2rem 0.25rem 0.25rem;">
         <a id="result1"></a>
     </div>
-    <div>
+    <div style="padding: 0 0.25rem;">
         <a id="result2"></a>
     </div>
-    <div style="padding-top: 1rem;">
+    <div style="padding: 1rem 0.25rem 0.25rem;">
         <a id="result3"></a>
     </div>
     <script>
