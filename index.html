@@ -151,11 +151,17 @@
     const hourY = (y - minuteY) / 60;
 
     now.setHours(now.getHours() + hour);
+    let hh = now.getHours();
+    let ampm = "오전";
+    if (hh > 12) {
+      hh = hh - 12;
+      ampm = "오후";
+    }
     now.setMinutes(now.getMinutes() + minute);
     now.setSeconds(now.getSeconds() + second);
     result1.textContent = `${hour}시간 ${minute}분 ${second}초 경과`
     result2.textContent = `${hourY}시간 ${minuteY}분 ${secondY}초 남았을 때`
-    result3.textContent = `${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 투입`;
+    result3.textContent = `${ampm} ${hh}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 투입`;
   });
 </script>
 </body>
