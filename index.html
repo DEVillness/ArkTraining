@@ -120,23 +120,23 @@
         const result3 = document.getElementById("result3");
 
         button.addEventListener('click', () => {
-            var now = new Date();
-            var time = parseInt(document.getElementById("time").value);
-            var acc = parseFloat(document.getElementById("acc").value);
-            var control = document.getElementById("control").checked ? 0.05 : 0;
-            var gscs = document.getElementById("gscs").checked ? 1.35 : 1.05;
+            let now = new Date();
+            const time = parseInt(document.getElementById("time").value);
+            const acc = parseFloat(document.getElementById("acc").value);
+            const control = document.getElementById("control").checked ? 0.05 : 0;
+            const gscs = document.getElementById("gscs").checked ? 1.35 : 1.05;
 
-            var x = parseInt((time - 18000 * gscs) / (1.05 + acc + control));
-            var second = x % 60;
+            let x = Math.floor((time - 18000 * gscs) / (1.05 + acc + control));
+            const second = x % 60;
             x = (x - second) / 60;
-            var minute = x % 60;
-            var hour = (x - minute) / 60;
+            const minute = x % 60;
+            const hour = (x - minute) / 60;
 
-            var y = parseInt(18000 * gscs / (1.05 + acc + control));
-            var secondY = y % 60;
+            let y = Math.floor(18000 * gscs / (1.05 + acc + control));
+            const secondY = y % 60;
             y = (y - secondY) / 60;
-            var minuteY = y % 60;
-            var hourY = (y - minuteY) / 60;
+            const minuteY = y % 60;
+            const hourY = (y - minuteY) / 60;
 
             now.setHours(now.getHours() + hour);
             now.setMinutes(now.getMinutes() + minute);
