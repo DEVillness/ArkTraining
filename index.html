@@ -4,148 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      html {
+        background: #000 no-repeat center/auto 100vh url(background.png);
+        min-height: 100vh;
+      }
+
+      body {
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 1.5rem;
+        margin: 5rem 2rem;
+        color-scheme: dark;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      select {
+        font-size: 1.5rem;
+        height: 38px;
+      }
+
+      input {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+
+      button {
+        font-size: 1.5rem;
+      }
+
+      body > div {
+        width: 400px;
+        background-color: #000000bf;
+        box-sizing: border-box;
+      }
+
+      body > div > div {
+        display: flex;
+        padding: 0.5rem;
+        border: solid #797979 1px;
+        height: 3.5rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      body > div > div > label {
+        flex: 1;
+        display: inline-block;
+        max-width: 250px;
+        vertical-align: middle;
+      }
+
+      @media (max-width: 60vh) {
         html {
-            background: #000 no-repeat center/auto 100vh url(background.png);
-            min-height: 100vh;
+          background: #000 no-repeat center/250vw auto url(background.png);
         }
+      }
+
+      @media (max-width: 464px) {
         body {
-            color: #fff;
-            font-family: sans-serif;
-            font-size: 1.5rem;
-            margin: 5rem 2rem;
-            color-scheme: dark;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          align-items: stretch;
         }
-        select {
-            font-size: 1.5rem;
-            height: 38px;
-        }
-        input {
-            height: 1.5rem;
-            width: 1.5rem;
-        }
-        button {
-            font-size: 1.5rem;
-        }
+
         body > div {
-            width: 400px;
-            background-color: #000000bf;
-            box-sizing: border-box;
+          width: auto;
         }
-        body > div > div {
-            display: flex;
-            padding: 0.5rem;
-            border: solid #797979 1px;
-            height: 3.5rem;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        body > div > div > label {
-            flex: 1;
-            display: inline-block;
-            max-width: 250px;
-            vertical-align: middle;
-        }
-        @media (max-width: 60vh) {
-            html {
-                background: #000 no-repeat center/250vw auto url(background.png);
-            }
-        }
-        @media (max-width: 464px) {
-            body {
-                align-items: stretch;
-            }
-            body > div {
-                width: auto;
-            }
-        }
+      }
     </style>
     <link rel="icon" href="favicon.ico">
     <title>훈련시간 계산기</title>
 </head>
 <body>
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdevillness.github.io%2FArkTraining%2F&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"
-         alt="Hits"
-         style="display: none;"/>
-    <div style="display: flex; flex-direction: column; align-items: stretch;">
-        <div>
-            <label for="time">훈련시간</label>
-            <select id="time">
-                <option value="28800">8시간</option>
-                <option value="57600">16시간</option>
-                <option value="86400">24시간</option>
-            </select>
-        </div>
-        <div>
-            <label for="acc">훈련속도</label>
-            <select id="acc">
-                <option value="-0.05">미배치</option>
-                <option value="0">0%</option>
-                <option value="0.25">25%</option>
-                <option value="0.30">30%</option>
-                <option value="0.50">50%</option>
-                <option value="0.60" selected>60%</option>
-                <option value="0.75">75%</option>
-                <option value="0.80">80%</option>
-                <option value="0.95">95%</option>
-            </select>
-        </div>
-        <div>
-            <label for="control">아스카론</label><input type="checkbox" id="control">
-        </div>
-        <div style="font-size: 1rem;">
-            <label for="gscs">아이린 + 가드/스나이퍼<br>로고스 + 캐스터/서포터</label><input type="checkbox" id="gscs">
-        </div>
-        <div style="display: flex; justify-content: center;">
-            <button id="button">훈련 시작</button>
-        </div>
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdevillness.github.io%2FArkTraining%2F&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"
+     alt="Hits"
+     style="display: none;"/>
+<div style="display: flex; flex-direction: column; align-items: stretch;">
+    <div>
+        <label for="time">훈련시간</label>
+        <select id="time">
+            <option value="28800">8시간</option>
+            <option value="57600">16시간</option>
+            <option value="86400">24시간</option>
+        </select>
     </div>
-    <div style="font-size: 0.75rem; word-break: keep-all; padding: 0.25rem;">
-        <span style="color: red; font-weight: bold;">주의!</span> 아이린/로고스를 배치하여 스킬 훈련을 진행하는 도중에 아스카론을 제어센터에 배치하면 훈련시간 단축으로 인해 50% 감소 효과를 받지 못할 수 있습니다.
+    <div>
+        <label for="acc">훈련속도</label>
+        <select id="acc">
+            <option value="-0.05">미배치</option>
+            <option value="0">0%</option>
+            <option value="0.25">25%</option>
+            <option value="0.30">30%</option>
+            <option value="0.50">50%</option>
+            <option value="0.60" selected>60%</option>
+            <option value="0.75">75%</option>
+            <option value="0.80">80%</option>
+            <option value="0.95">95%</option>
+        </select>
     </div>
-    <div style="padding: 2rem 0.25rem 0.25rem;">
-        <a id="result1"></a>
+    <div>
+        <label for="control">아스카론</label><input type="checkbox" id="control">
     </div>
-    <div style="padding: 0 0.25rem;">
-        <a id="result2"></a>
+    <div style="font-size: 1rem;">
+        <label for="gscs">아이린 + 가드/스나이퍼<br>로고스 + 캐스터/서포터</label><input type="checkbox" id="gscs">
     </div>
-    <div style="padding: 1rem 0.25rem 0.25rem;">
-        <a id="result3"></a>
+    <div style="display: flex; justify-content: center;">
+        <button id="button">훈련 시작</button>
     </div>
-    <script>
-        const button = document.getElementById("button");
-        const result1 = document.getElementById("result1");
-        const result2 = document.getElementById("result2");
-        const result3 = document.getElementById("result3");
+</div>
+<div style="font-size: 0.75rem; word-break: keep-all; padding: 0.25rem;">
+    <span style="color: red; font-weight: bold;">주의!</span> 아이린/로고스를 배치하여 스킬 훈련을 진행하는 도중에 아스카론을 제어센터에 배치하면 훈련시간 단축으로 인해
+    50% 감소 효과를 받지 못할 수 있습니다.
+</div>
+<div style="padding: 2rem 0.25rem 0.25rem;">
+    <a id="result1"></a>
+</div>
+<div style="padding: 0 0.25rem;">
+    <a id="result2"></a>
+</div>
+<div style="padding: 1rem 0.25rem 0.25rem;">
+    <a id="result3"></a>
+</div>
+<script>
+  const button = document.getElementById("button");
+  const result1 = document.getElementById("result1");
+  const result2 = document.getElementById("result2");
+  const result3 = document.getElementById("result3");
 
-        button.addEventListener('click', () => {
-            let now = new Date();
-            const time = parseInt(document.getElementById("time").value);
-            const acc = parseFloat(document.getElementById("acc").value);
-            const control = document.getElementById("control").checked ? 0.05 : 0;
-            const gscs = document.getElementById("gscs").checked ? 1.35 : 1.05;
+  button.addEventListener('click', () => {
+    let now = new Date();
+    const time = parseInt(document.getElementById("time").value);
+    const acc = parseFloat(document.getElementById("acc").value);
+    const control = document.getElementById("control").checked ? 0.05 : 0;
+    const gscs = document.getElementById("gscs").checked ? 1.35 : 1.05;
 
-            let x = Math.floor((time - 18000 * gscs) / (1.05 + acc + control));
-            const second = x % 60;
-            x = (x - second) / 60;
-            const minute = x % 60;
-            const hour = (x - minute) / 60;
+    let x = Math.floor((time - 18000 * gscs) / (1.05 + acc + control));
+    const second = x % 60;
+    x = (x - second) / 60;
+    const minute = x % 60;
+    const hour = (x - minute) / 60;
 
-            let y = Math.floor(18000 * gscs / (1.05 + acc + control));
-            const secondY = y % 60;
-            y = (y - secondY) / 60;
-            const minuteY = y % 60;
-            const hourY = (y - minuteY) / 60;
+    let y = Math.floor(18000 * gscs / (1.05 + acc + control));
+    const secondY = y % 60;
+    y = (y - secondY) / 60;
+    const minuteY = y % 60;
+    const hourY = (y - minuteY) / 60;
 
-            now.setHours(now.getHours() + hour);
-            now.setMinutes(now.getMinutes() + minute);
-            now.setSeconds(now.getSeconds() + second);
-            result1.textContent = `${hour}시간 ${minute}분 ${second}초 경과`
-            result2.textContent = `${hourY}시간 ${minuteY}분 ${secondY}초 남았을 때`
-            result3.textContent = `${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 투입`;
-        });
-    </script>
+    now.setHours(now.getHours() + hour);
+    now.setMinutes(now.getMinutes() + minute);
+    now.setSeconds(now.getSeconds() + second);
+    result1.textContent = `${hour}시간 ${minute}분 ${second}초 경과`
+    result2.textContent = `${hourY}시간 ${minuteY}분 ${secondY}초 남았을 때`
+    result3.textContent = `${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 투입`;
+  });
+</script>
 </body>
 </html>
