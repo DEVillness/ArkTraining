@@ -144,21 +144,22 @@
     const minute = x % 60;
     const hour = (x - minute) / 60;
 
+    now.setSeconds(now.getSeconds() + second);
+    now.setMinutes(now.getMinutes() + minute);
+    now.setHours(now.getHours() + hour);
+    let hh = now.getHours();
+    let ampm = "오전";
+    if (hh >= 12) {
+      hh = hh - 12;
+      ampm = "오후";
+    } else if (hh === 12) ampm = "오후";
+
     let y = Math.floor(18000 * gscs / (1.05 + acc + control));
     const secondY = y % 60;
     y = (y - secondY) / 60;
     const minuteY = y % 60;
     const hourY = (y - minuteY) / 60;
 
-    now.setHours(now.getHours() + hour);
-    let hh = now.getHours();
-    let ampm = "오전";
-    if (hh > 12) {
-      hh = hh - 12;
-      ampm = "오후";
-    }
-    now.setMinutes(now.getMinutes() + minute);
-    now.setSeconds(now.getSeconds() + second);
     result1.textContent = `${hour}시간 ${minute}분 ${second}초 경과`
     result2.textContent = `${hourY}시간 ${minuteY}분 ${secondY}초 남았을 때`
     result3.textContent = `${ampm} ${hh}시 ${now.getMinutes()}분 ${now.getSeconds()}초에 투입`;
