@@ -13,8 +13,7 @@
       body {
         color: #fff;
         font-family: sans-serif;
-        font-size: 1.5rem;
-        margin: 5rem 2rem;
+        margin: 5rem 2rem 2rem;
         color-scheme: dark;
         display: flex;
         flex-direction: column;
@@ -41,7 +40,14 @@
         box-sizing: border-box;
       }
 
-      body > div > div {
+      body > div.input {
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      body > div.input > div {
         display: flex;
         padding: 0.5rem;
         border: solid #797979 1px;
@@ -50,11 +56,43 @@
         box-sizing: border-box;
       }
 
-      body > div > div > label {
+      body > div.input > div > label {
         flex: 1;
         display: inline-block;
         max-width: 250px;
         vertical-align: middle;
+      }
+
+      body > div.maximum > label#maximum {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      body > div.maximum > div.fold {
+        font-size: 0;
+        transition: all 0.2s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
+      }
+
+      body > div.maximum > input#isFold:checked + div.fold {
+        transition: all 0.2s ease-in-out;
+        max-height: 950px;
+      }
+
+      body > div.maximum > div > div span {
+        display: inline-block;
+        font-size: 0.75rem;
+        text-align: center;
+        width: 25%;
+        word-break: keep-all;
+      }
+
+      body > div.maximum > div > div > img {
+        width: 25%;
       }
 
       @media (max-width: 60vh) {
@@ -80,7 +118,7 @@
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdevillness.github.io%2FArkTraining%2F&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"
      alt="Hits"
      style="display: none;"/>
-<div style="display: flex; flex-direction: column; align-items: stretch;">
+<div class="input">
     <div>
         <label for="time">훈련시간</label>
         <select id="time">
@@ -118,14 +156,124 @@
     <span style="color: red; font-weight: bold;">주의!</span> 아이린/로고스를 배치하여 스킬 훈련을 진행하는 도중에 아스카론을 제어센터에 배치하면 훈련시간 단축으로 인해
     50% 감소 효과를 받지 못할 수 있습니다.
 </div>
-<div style="padding: 2rem 0.25rem 0.25rem;">
+<div style="padding: 1rem 0.25rem 0; font-size: 1.5rem;">
     <a id="result1"></a>
 </div>
-<div style="padding: 0 0.25rem;">
+<div style="padding: 0 0.25rem; font-size: 1.5rem;">
     <a id="result2"></a>
 </div>
-<div style="padding: 1rem 0.25rem 0.25rem;">
+<div style="padding: 1rem 0.25rem; font-size: 1.5rem;">
     <a id="result3"></a>
+</div>
+<div class="maximum">
+    <label id="maximum" for="isFold">
+        ▼ 포지션별 최고 효율 오퍼레이터
+    </label>
+    <input id="isFold" type="checkbox" hidden>
+    <div class="fold" >
+        <div>
+            <span>포지션</span>
+            <span>1단계</span>
+            <span>2단계</span>
+            <span>3단계</span>
+        </div>
+        <div>
+            <img src="resources/logo/Vanguard.png" alt="Vanguard Logo">
+            <img src="resources/Blacknight_Elite_2_icon.png" alt="Blacknight Elite2">
+            <img src="resources/Texas_the_Omertosa_Elite_2_icon.png" alt="Texas The Omertosa Elite2">
+            <img src="resources/Saga_Elite_2_icon.png" alt="Saga Elite2">
+        </div>
+        <div>
+            <span>뱅가드</span>
+            <span>75%</span>
+            <span>80%</span>
+            <span>60%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Guard.png" alt="Guard Logo">
+            <img src="resources/Akafuyu_Elite_2_icon.png" alt="Akafuyu Elite2">
+            <img src="resources/Flint_Elite_2_icon.png" alt="Flint Elite2">
+            <img src="resources/Gavial_the_Invincible_Elite_2_icon.png" alt="Gavial The Invincible Elite2">
+        </div>
+        <div>
+            <span>가드</span>
+            <span>75%</span>
+            <span>75%</span>
+            <span>95%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Defender.png" alt="Defender Logo">
+            <img src="resources/Aurora_Elite_2_icon.png" alt="Aurora Elite2">
+            <img src="resources/Heavyrain_Elite_2_icon.png" alt="Heavyrain Elite2">
+            <img src="resources/Hoshiguma_Elite_2_icon.png" alt="Hoshiguma Elite2">
+        </div>
+        <div>
+            <span>디펜더</span>
+            <span>75%</span>
+            <span>75%</span>
+            <span>60%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Sniper.png" alt="Sniper Logo">
+            <img src="resources/Ch'en_the_Holungday_Elite_2_icon.png" alt="Ch'en The Holungday Elite2">
+            <img src="resources/Erato_Elite_2_icon.png" alt="Erato Elite2">
+            <img src="resources/W_Elite_2_icon.png" alt="W Elite2">
+        </div>
+        <div>
+            <span>스나이퍼</span>
+            <span>95%</span>
+            <span>75%</span>
+            <span>95%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Caster.png" alt="Caster Logo">
+            <img src="resources/Tomimi_Elite_2_icon.png" alt="Tomimi Elite2">
+            <img src="resources/Mint_Elite_2_icon.png" alt="Mint Elite2">
+            <img src="resources/Necrass_Elite_2_icon.png" alt="Necrass Elite2">
+        </div>
+        <div>
+            <span>캐스터</span>
+            <span>75%</span>
+            <span>75%</span>
+            <span>95%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Medic.png" alt="Medic Logo">
+            <img src="resources/Aak_Elite_2_icon.png" alt="Aak Elite2">
+            <img src="resources/Hibiscus_the_Purifier_Elite_2_icon.png" alt="Hibiscus The Purifier Elite2">
+            <img src="resources/Aak_Elite_2_icon.png" alt="Aak Elite2">
+        </div>
+        <div>
+            <span>메딕</span>
+            <span>60%</span>
+            <span>75%</span>
+            <span>60%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Supporter.png" alt="Supporter Logo">
+            <img src="resources/Suzuran_Skin_1_icon.png" alt="Suzuran Elite2">
+            <img src="resources/Suzuran_Skin_2_icon.png" alt="Suzuran Elite2">
+            <img src="resources/Skadi_the_Corrupting_Heart_Elite_2_icon.png" alt="Skadi the Corrupting Heart_Elite2">
+        </div>
+        <div>
+            <span>서포터</span>
+            <span>60%</span>
+            <span>60%</span>
+            <span>95%</span>
+        </div>
+        <div>
+            <img src="resources/logo/Specialist.png" alt="Specialist Logo">
+            <img src="resources/Robin_Elite_2_icon.png" alt="Robin Elite2">
+            <img src="resources/Texas_the_Omertosa_Skin_2_icon.png" alt="Texas The Omertosa Elite2">
+            <img src="resources/Specter_the_Unchained_Skin_1_icon.png" alt="Specter the Unchained Elite2">
+        </div>
+        <div>
+            <span>스페셜리스트</span>
+            <span>75%</span>
+            <span>80%</span>
+            <span>95%</span>
+        </div>
+    </div>
 </div>
 <script>
   const button = document.getElementById("button");
