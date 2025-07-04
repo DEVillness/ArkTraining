@@ -1,6 +1,6 @@
 # ArkTraining
 
-![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdevillness.github.io%2FArkTraining%2F&count_bg=%23555555&title_bg=%23CA0000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)
+![](https://myhits.vercel.app/api/hit/https%3A%2F%2Fdevillness.github.io%2FArkTraining%2F)
 
 ## 사용 방법
 * 아이린/로고스의 훈련시간 50% 단축 효과를 사용하여 스킬 마스터리 훈련시간을 최적화할 때, 아이린/로고스를 훈련실에 배치하는 시간을 계산합니다.
